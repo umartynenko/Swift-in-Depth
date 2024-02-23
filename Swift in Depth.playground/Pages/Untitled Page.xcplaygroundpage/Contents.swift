@@ -10,6 +10,7 @@ struct Run {
     let onRunningTrack: Bool
 }
 
+
 struct Cycle {
     enum CycleType {
         case regular
@@ -26,12 +27,36 @@ struct Cycle {
 }
 
 
-class Workout {
-    let id: String = ""
-}
-
-
-class Pushups: Workout {
-    let repetitions: [Int] = []
+struct Pushups {
+    let repetitions: [Int]
     let date: Date
 }
+
+struct Abs {
+    let a: [Int]
+    let date: Date
+}
+
+
+enum Workout {
+    case run(Run)
+    case cycle(Cycle)
+    case pushups(Pushups)
+    case abs(Abs)
+}
+
+
+switch workout {
+    case .run(let run): 
+        print("Run: \(run)")
+    case .cycle(let cycle):
+        print("Cycle: \(cycle)")
+    case .pushups(let pushups):
+        print("Pushups \(pushups)")
+    case .abs(let abs):
+        print("Abs \(abs)")
+}
+
+let pushups = Pushups(repetitions: [22,20,10], date: Date())
+let workout = Workout.pushups(pushups)
+
