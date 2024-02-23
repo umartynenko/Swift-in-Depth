@@ -13,3 +13,20 @@ for element: Any in arr {
     }
 }
 
+
+enum DateType {
+    case singleDate(Date)
+    case dateRange(Range<Date>)
+}
+
+
+let now = Date()
+let hourFromNow = Date(timeIntervalSinceNow: 360)
+let dates: [DateType] = [DateType.singleDate(now), DateType.dateRange(now..<hourFromNow)]
+
+for dateType in dates {
+    switch dateType {
+        case .singleDate(let date): print("Date is \(date)")
+        case .dateRange(let range): print("Range is \(range)")
+    }
+}
