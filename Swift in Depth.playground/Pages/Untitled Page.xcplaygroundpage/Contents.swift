@@ -3,7 +3,7 @@ import Foundation
 
 
 struct Run {
-    let id: String
+//    let id: String
     let startTime: Date
     let endTime: Date
     let distance: Float
@@ -23,4 +23,15 @@ struct Cycle {
     let distance: Float
     let incline: Int
     let type: CycleType
+}
+
+
+class Workout {
+    let id: String = ""
+}
+
+
+class Pushups: Workout {
+    let repetitions: [Int] = []
+    let date: Date
 }
